@@ -3,7 +3,7 @@ name: Deploy Portfolio to GitHub Pages
 on:
   push:
     branches:
-      - main   # Deploy only when pushing to main branch
+      - main
 
 permissions:
   contents: read
@@ -22,15 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4   # ⬅️ updated to v4
 
-      # Upload your HTML/CSS/JS files as artifacts
       - name: Upload static site
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3   # ⬅️ updated to v3
         with:
-          path: .   # deploy everything in root (index.html, css/, js/, images/)
+          path: .   # your HTML, CSS, JS files
 
-      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4   # ⬅️ updated to v4
