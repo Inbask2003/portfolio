@@ -1,4 +1,4 @@
-name: Deploy Portfolio to GitHub Pages
+name: Santhosh Kumar PortFolio
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: "portfolio-deploy"
   cancel-in-progress: true
 
 jobs:
@@ -22,13 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4   # ⬅️ updated to v4
+        uses: actions/checkout@v4
 
       - name: Upload static site
-        uses: actions/upload-pages-artifact@v3   # ⬅️ updated to v3
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: .   # your HTML, CSS, JS files
+          path: .
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4   # ⬅️ updated to v4
+        uses: actions/deploy-pages@v4
